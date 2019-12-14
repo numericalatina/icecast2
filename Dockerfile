@@ -14,7 +14,6 @@ RUN apk add --update \
         libvorbis \
         libogg \
         supervisor \
-        git \
         mailcap && \
     rm -rf /var/cache/apk/*
 

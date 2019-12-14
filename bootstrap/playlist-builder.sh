@@ -7,9 +7,6 @@ touch /etc/ezstream_playlist.m3u
 
 function pullCCMedia() {
 
-    # There's no fallback media - Let's just use some Creative Commons Media for now...
-    git clone https://github.com/ned-kelly/moh-cc.git /opt/cc-media/
-
     FALLBACK_MEDIA=`find /opt/cc-media/ -type f -name *.mp3`
     echo "$FALLBACK_MEDIA" > /etc/ezstream_playlist.m3u
 
