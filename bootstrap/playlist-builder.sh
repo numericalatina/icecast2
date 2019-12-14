@@ -4,24 +4,11 @@
 # Sort-out the playlist file...
 touch /etc/ezstream_playlist.m3u
 
-
-function pullCCMedia() {
-
-    FALLBACK_MEDIA=`find /opt/cc-media/ -type f -name *.mp3`
-    echo "$FALLBACK_MEDIA" > /etc/ezstream_playlist.m3u
-
-}
-
-FALLBACK_MEDIA=`find /external-media/imported -type f -name *.mp3`
+FALLBACK_MEDIA=`find $EXTERNAL_MEDIA -type f -name *.mp3`
 if [ $? -eq 0 ]; then
     if [[ $(echo "$FALLBACK_MEDIA" | wc -l) -ge 0 ]];then
-        # There's already imported tracks from Libretime - Let's use them for our fallback stream...
         echo "$FALLBACK_MEDIA" > /etc/ezstream_playlist.m3u
-    else
-        pullCCMedia
     fi
-else
-    pullCCMedia
 fi
 
 echo "Wrote ezstream_playlist.m3u & Reloaded ezstream"
