@@ -17,8 +17,6 @@ RUN apk add --update \
         mailcap && \
     rm -rf /var/cache/apk/*
 
-# Copy in custom release of our icecast.xml (by default)...
-COPY config/icecast.xml config/ezstream_mp3.xml /etc/
 COPY bootstrap/* /
 COPY config/supervisor-icecast.conf /etc/supervisor/conf.d/supervisor-icecast.conf
 COPY config/supervisord.conf /etc/supervisor/supervisord.conf
