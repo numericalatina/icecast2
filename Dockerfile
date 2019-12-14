@@ -22,7 +22,6 @@ COPY config/supervisor-icecast.conf /etc/supervisor/conf.d/supervisor-icecast.co
 COPY config/supervisord.conf /etc/supervisor/supervisord.conf
 
 RUN chmod +x /entrypoint.sh && chmod +x /playlist-builder.sh && \
-    chmod 0755 /etc/ezstream_mp3.xml && \
     mkdir -p "/var/log/supervisor/" && \
     mkdir -p /usr/share/icecast && mkdir -p /var/log/icecast && \
     mkdir -p /external-media && chmod 777 /external-media && \
